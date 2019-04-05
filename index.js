@@ -111,7 +111,7 @@ const initTodoItems = [
   { index: 3, value: 'buy flowers', done: true }
 ];
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
