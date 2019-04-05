@@ -6,39 +6,6 @@ const initTodoItems = [
 
 const removeItem = (items, itemIndex) => items.filter((_, i) => i !== itemIndex);
 
-const TodoList = ({ todoItems, removeItem, markTodoDone }) => {
-  const itemsNodes = todoItems.map((item, index) => (
-    <li key={ index } className="list-group-item " onClick={ () => markTodoDone(parseInt(index)) } >
-      <div className={ item.done ? 'done' : 'undone' }>
-        { item.value }
-        <button type="button" className="close" onClick={ (e) => {
-            e.stopPropagation();
-            removeItem(parseInt(index));} }>&times;</button>
-      </div>
-    </li>
-  ));
-
-  return (
-    <ul className="list-group"> { itemsNodes } </ul>
-  );
-};
-
-const TodoForm = ({ onTodoAddInputChange, todoAddInput, onSubmit }) => {
-  return (
-    <form onSubmit={ onSubmit } className="form-inline">
-      <input
-        autoFocus
-        type="text"
-        className="form-control"
-        placeholder="add a new todo..."
-        onChange={ onTodoAddInputChange }
-        value={ todoAddInput }
-      />
-      <button type="submit" className="btn btn-light">Add</button>
-    </form>
-  );
-};
-
 class TodoApp extends React.Component {
   constructor(props) {
     super(props);
