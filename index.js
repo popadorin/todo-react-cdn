@@ -1,3 +1,9 @@
+const initTodoItems = [
+  { index: 1, value: 'learn react', done: false },
+  { index: 2, value: 'Go shopping', done: true },
+  { index: 3, value: 'buy flowers', done: true }
+];
+
 const removeItem = (items, itemIndex) => items.filter((_, i) => i !== itemIndex);
 
 const TodoList = ({ todoItems, removeItem, markTodoDone }) => {
@@ -33,12 +39,12 @@ const TodoForm = ({ onTodoAddInputChange, todoAddInput, onSubmit }) => {
   );
 };
 
-class Todo extends React.Component {
+class TodoApp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      todoItems: props.initItems,
+      todoItems: initTodoItems,
       todoAddInput: '',
     };
   }
@@ -105,23 +111,7 @@ class Todo extends React.Component {
   }
 }
 
-const initTodoItems = [
-  { index: 1, value: 'learn react', done: false },
-  { index: 2, value: 'Go shopping', done: true },
-  { index: 3, value: 'buy flowers', done: true }
-];
-
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Todo initItems={ initTodoItems } />
-      </div>
-    );
-  }
-}
-
 ReactDOM.render(
-  <App/>,
+  <TodoApp/>,
   document.getElementById('root')
 );
